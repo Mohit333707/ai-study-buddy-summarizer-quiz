@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Study Buddy — Notes to Summary &amp; Quiz</title>
+<link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<header>
+  <h1>📚 AI Study Buddy</h1>
+  <p class="tagline">Paste your study notes → get a summary, key concepts, and a quiz to test yourself.</p>
+  <p id="status" class="status">Checking backend…</p>
+</header>
+
+<main>
+  <section class="card">
+    <label for="notes"><strong>Your notes</strong></label>
+    <textarea id="notes" rows="10" placeholder="Paste textbook text or lecture notes here (at least a few sentences)…"></textarea>
+    <div class="controls">
+      <label>Summary sentences
+        <input id="numSentences" type="number" min="1" max="10" value="3">
+      </label>
+      <label>Keywords
+        <input id="numKeywords" type="number" min="1" max="20" value="10">
+      </label>
+      <label>Quiz questions
+        <input id="numQuestions" type="number" min="0" max="10" value="5">
+      </label>
+      <button id="analyzeBtn">✨ Analyse my notes</button>
+      <button id="sampleBtn" type="button" class="secondary">Try sample notes</button>
+    </div>
+    <p id="error" class="error" hidden></p>
+  </section>
+
+  <section id="results" hidden>
+    <div class="card">
+      <h2>📊 Reading stats</h2>
+      <div id="stats" class="stats"></div>
+    </div>
+
+    <div class="card">
+      <h2>📝 Summary</h2>
+      <ul id="summary"></ul>
+    </div>
+
+    <div class="card">
+      <h2>🔑 Key concepts</h2>
+      <div id="keywords" class="chips"></div>
+    </div>
+
+    <div class="card">
+      <h2>🧠 Quiz yourself <span id="score" class="score"></span></h2>
+      <p class="hint">Type the missing word, or pick an option — then press “Check answers”.</p>
+      <ol id="quiz"></ol>
+      <button id="checkBtn">Check answers</button>
+      <button id="revealBtn" type="button" class="secondary">Show answers</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>TF-IDF extractive summarisation + keyword extraction, running locally. No data leaves your machine.</p>
+</footer>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
